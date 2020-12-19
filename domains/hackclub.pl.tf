@@ -14,11 +14,11 @@ resource "cloudflare_record" "hackclubpl_a_main" {
 
 resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
   zone_id = cloudflare_zone.hackclubpl.id
-  target = "warsaw.${cloudflare_zone.hackclubpl.zone}/*"
+  target = "*warsaw.${cloudflare_zone.hackclubpl.zone}/*"
 
   actions {
     forwarding_url {
-      status_code = 307
+      status_code = 302
       url = "https://hackclub.pl"
     }
   }
