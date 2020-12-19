@@ -10,10 +10,6 @@ resource "cloudflare_record" "hackclubpl_a_main" {
   value = "76.76.21.21"
 
   proxied = true
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
@@ -26,10 +22,6 @@ resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
       url = "https://hackclub.pl"
     }
   }
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 # Google Workspace config
@@ -41,10 +33,6 @@ resource "cloudflare_record" "hackclubpl_mx_aspmx" {
   type = "MX"
   value = "aspmx.l.google.com"
   priority = 1
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt1" {
@@ -54,10 +42,6 @@ resource "cloudflare_record" "hackclubpl_mx_aspmx_alt1" {
   type = "MX"
   value = "alt1.aspmx.l.google.com"
   priority = 5
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt2" {
@@ -67,10 +51,6 @@ resource "cloudflare_record" "hackclubpl_mx_aspmx_alt2" {
   type = "MX"
   value = "alt2.aspmx.l.google.com"
   priority = 5
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt3" {
@@ -80,10 +60,6 @@ resource "cloudflare_record" "hackclubpl_mx_aspmx_alt3" {
   type = "MX"
   value = "alt3.aspmx.l.google.com"
   priority = 10
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt4" {
@@ -93,10 +69,6 @@ resource "cloudflare_record" "hackclubpl_mx_aspmx_alt4" {
   type = "MX"
   value = "alt4.aspmx.l.google.com"
   priority = 10
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
 
 resource "cloudflare_record" "hackclubpl_txt_google_spf" {
@@ -105,8 +77,4 @@ resource "cloudflare_record" "hackclubpl_txt_google_spf" {
   name = "@"
   type = "TXT"
   value = "v=spf1 include:_spf.google.com ~all"
-
-  depends_on = [
-    cloudflare_zone.hackclubpl
-  ]
 }
