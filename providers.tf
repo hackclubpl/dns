@@ -6,7 +6,10 @@ terraform {
   }
 }
 
+variable "cloudflare_email" {}
+variable "cloudflare_api_key" {}
+
 provider "cloudflare" {
-  email   = var.CLOUDFLARE_EMAIL
-  api_key = var.CLOUDFLARE_API_KEY
+  email   = var.cloudflare_email
+  api_key = var.cloudflare_api_key
 }
