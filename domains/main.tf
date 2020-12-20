@@ -1,4 +1,12 @@
 terraform {
+  backend "remote" {
+    organization = "hackclubpl"
+
+    workspaces {
+      name = "domains"
+    }
+  }
+
   required_providers {
     cloudflare = {
       source = "terraform-providers/cloudflare"
