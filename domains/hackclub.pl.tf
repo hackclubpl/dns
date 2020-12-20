@@ -7,14 +7,14 @@ resource "cloudflare_record" "hackclubpl_a_main" {
 
   name  = "@"
   type  = "A"
-  value = "76.76.21.21"
+  value = var.vercel_ip_address
 
   proxied = true
 }
 
 resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
   zone_id = cloudflare_zone.hackclubpl.id
-  target  = "*warsaw.${cloudflare_zone.hackclubpl.zone}/*"
+  target  = "*warsaw.${var.hackclub_main_domain}/*"
 
   actions {
     forwarding_url {
