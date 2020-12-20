@@ -7,7 +7,7 @@ resource "cloudflare_record" "hackclubrocks_a_main" {
 
   name  = "@"
   type  = "A"
-  value = cloudflare_record.hackclubpl_a_main.value
+  value = var.vercel_ip_address
 
   proxied = true
 }
