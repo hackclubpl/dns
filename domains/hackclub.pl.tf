@@ -12,6 +12,16 @@ resource "cloudflare_record" "hackclubpl_a_main" {
   proxied = true
 }
 
+resource "cloudflare_record" "hackclubpl_a_www" {
+  zone_id = cloudflare_zone.hackclubpl.id
+
+  name  = "www"
+  type  = "A"
+  value = var.vercel_ip_address
+
+  proxied = true
+}
+
 # Cloudflare requires proxied record to enable page rule for it
 resource "cloudflare_record" "hackclubpl_cname_warsaw" {
   zone_id = cloudflare_zone.hackclubpl.id
