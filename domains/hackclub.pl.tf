@@ -45,14 +45,6 @@ resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
   }
 }
 
-resource "cloudflare_record" "hackclubpl_txt_github_verification" {
-  zone_id = cloudflare_zone.hackclubpl.id
-
-  name  = "_github-challenge-hackclubpl"
-  type  = "TXT"
-  value = "cbc4705322"
-}
-
 # Google Workspace config
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx" {
