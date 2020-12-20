@@ -5,8 +5,8 @@ resource "cloudflare_zone" "hackclubpl" {
 resource "cloudflare_record" "hackclubpl_a_main" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "A"
+  name  = "@"
+  type  = "A"
   value = "76.76.21.21"
 
   proxied = true
@@ -14,12 +14,12 @@ resource "cloudflare_record" "hackclubpl_a_main" {
 
 resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
   zone_id = cloudflare_zone.hackclubpl.id
-  target = "*warsaw.${cloudflare_zone.hackclubpl.zone}/*"
+  target  = "*warsaw.${cloudflare_zone.hackclubpl.zone}/*"
 
   actions {
     forwarding_url {
       status_code = 302
-      url = "https://hackclub.pl"
+      url         = "https://hackclub.pl"
     }
   }
 }
@@ -29,52 +29,52 @@ resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
 resource "cloudflare_record" "hackclubpl_mx_aspmx" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "MX"
-  value = "aspmx.l.google.com"
+  name     = "@"
+  type     = "MX"
+  value    = "aspmx.l.google.com"
   priority = 1
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt1" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "MX"
-  value = "alt1.aspmx.l.google.com"
+  name     = "@"
+  type     = "MX"
+  value    = "alt1.aspmx.l.google.com"
   priority = 5
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt2" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "MX"
-  value = "alt2.aspmx.l.google.com"
+  name     = "@"
+  type     = "MX"
+  value    = "alt2.aspmx.l.google.com"
   priority = 5
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt3" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "MX"
-  value = "alt3.aspmx.l.google.com"
+  name     = "@"
+  type     = "MX"
+  value    = "alt3.aspmx.l.google.com"
   priority = 10
 }
 
 resource "cloudflare_record" "hackclubpl_mx_aspmx_alt4" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "MX"
-  value = "alt4.aspmx.l.google.com"
+  name     = "@"
+  type     = "MX"
+  value    = "alt4.aspmx.l.google.com"
   priority = 10
 }
 
 resource "cloudflare_record" "hackclubpl_txt_google_spf" {
   zone_id = cloudflare_zone.hackclubpl.id
 
-  name = "@"
-  type = "TXT"
+  name  = "@"
+  type  = "TXT"
   value = "v=spf1 include:_spf.google.com ~all"
 }
