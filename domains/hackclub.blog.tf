@@ -13,6 +13,16 @@ resource "cloudflare_record" "hackclubblog_a_main" {
   proxied = true
 }
 
+resource "cloudflare_record" "hackclubblog_a_www" {
+  zone_id = cloudflare_zone.hackclubblog.id
+
+  name  = "www"
+  type  = "A"
+  value = var.vercel_ip_address
+
+  proxied = true
+}
+
 resource "cloudflare_page_rule" "hackclubblog_redirect" {
   zone_id = cloudflare_zone.hackclubblog.id
   target  = "*${cloudflare_zone.hackclubblog.zone}/*"
