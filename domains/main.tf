@@ -26,6 +26,7 @@ variable "vercel_ip_address" {
   default = "76.76.21.21"
 }
 
+# Used for redirects
 variable "hackclub_main_domain" {
-  default = cloudflare_zone.hackclubpl.zone
+  default = "hackclub.pl"
 }
