@@ -10,6 +10,10 @@ on:
     paths:
       - 'domains/**'
 
+defaults:
+  run:
+    working-directory: './domains'
+
 jobs:
   terraform:
     name: "Terraform"
