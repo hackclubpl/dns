@@ -26,6 +26,10 @@ variable "vercel_ip_address" {
   default = "76.76.21.21"
 }
 
+variable "vercel_cname" {
+  default = "cname.vercel-dns.com"
+}
+
 # Used for redirects
 variable "hackclub_main_domain" {
   default = "hackclub.pl"

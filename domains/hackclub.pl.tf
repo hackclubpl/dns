@@ -12,6 +12,17 @@ resource "cloudflare_record" "hackclubpl_a_main" {
   proxied = true
 }
 
+# Cloudflare requires proxied record to enable page rule for it
+resource "cloudflare_record" "hackclubpl_cname_warsaw" {
+  zone_id = cloudflare_zone.hackclubpl.id
+
+  name  = "warsaw"
+  type  = "CNAME"
+  value = var.vercel_cname
+
+  proxied = true
+}
+
 resource "cloudflare_page_rule" "hackclubpl_warsaw_redirect" {
   zone_id = cloudflare_zone.hackclubpl.id
   target  = "*warsaw.${var.hackclub_main_domain}/*"
