@@ -4,7 +4,7 @@ resource "cloudflare_zone" "hackclubblog" {
 
 resource "cloudflare_page_rule" "hackclubblog_redirect" {
   zone_id = cloudflare_zone.hackclubblog.id
-  target  = "*${cloudflare_zone.hackclubpl.zone}/*"
+  target  = "*${cloudflare_zone.hackclubblog.zone}/*"
 
   actions {
     forwarding_url {
